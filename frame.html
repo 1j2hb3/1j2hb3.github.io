@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Game Frame</title>
+  <link rel="stylesheet" href="main.css">
+  <style>
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      overflow: hidden;
+      background-color: black;
+      font-family: Arial, sans-serif;
+    }
+
+    .frame-navbar {
+      position: absolute;
+      top: 20px;
+      right: 40px;
+      z-index: 10;
+      display: flex;
+      gap: 15px;
+    }
+
+    .frame-navbar a,
+    .frame-navbar button {
+      text-decoration: none;
+      color: white;
+      font-size: 1.1em;
+      font-weight: bold;
+      padding: 8px 14px;
+      border: 2px solid #0099ff;
+      border-radius: 6px;
+      background: transparent;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .frame-navbar a:hover,
+    .frame-navbar button:hover {
+      background: #0099ff;
+      color: black;
+    }
+
+    iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+      z-index: 1;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="bg-dots"></div>
+
+  <div class="frame-navbar">
+    <a href="games.html">← Back to Games</a>
+    <button id="fullscreen-btn">⛶ Fullscreen</button>
+  </div>
+
+  <iframe id="game-frame" src=""></iframe>
+
+  <script>
+    // Load game from query param
+    const params = new URLSearchParams(window.location.search);
+    const src = params.get('src');
+
+    if (src) {
+      const baseURL = 'https://ucbg.github.io';
+      const fullURL = baseURL + src;
+      document.getElementById('game-frame').src = fullURL;
+    } else {
+      document.body.innerHTML =
+        '<h2 style="color:white;text-align:center;margin-top:20%;">No game URL provided in the "src" parameter.</h2>';
+    }
+
+    // Fullscreen functionality
+    const iframe = document.getElementById('game-frame');
+    const fullscreenBtn = document.getElementById('fullscreen-btn');
+
+    fullscreenBtn.addEventListener('click', () => {
+      if (iframe.requestFullscreen) {
+        iframe.requestFullscreen();
+      } else if (iframe.webkitRequestFullscreen) { // Safari
+        iframe.webkitRequestFullscreen();
+      } else if (iframe.msRequestFullscreen) { // IE11
+        iframe.msRequestFullscreen();
+      }
+    });
+  </script>
+</body>
+
+</html>

@@ -23,8 +23,8 @@ body {
   position: fixed;
   width: 100%;
   height: 100%;
-  background: radial-gradient(var(--accent) 6%, transparent 8%) 0 0 / 30px 30px;
-  opacity: 0.15;
+  background: radial-gradient(#add8e6 6%, transparent 8%) 0 0 / 30px 30px;
+  opacity: 0.25; /* Slightly higher opacity to enhance visibility */
   animation: dotsMove 8s linear infinite;
   mask-image: radial-gradient(ellipse 90% 80% at center, rgba(0, 0, 0, 0.9) 50%, rgba(0, 0, 0, 0.5) 75%, rgba(0, 0, 0, 0) 100%);
   -webkit-mask-image: radial-gradient(ellipse 90% 80% at center, rgba(0, 0, 0, 0.9) 50%, rgba(0, 0, 0, 0.5) 75%, rgba(0, 0, 0, 0) 100%);

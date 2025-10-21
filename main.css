@@ -13,11 +13,11 @@ body {
   background-color: #000;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: white;
-  overflow-y: auto; /* Allow vertical scroll */
-  overflow-x: hidden; /* Optional: keep horizontal scroll off */
+  overflow-y: auto;
+  overflow-x: hidden;
   position: relative;
-  min-height: 100vh; /* Let content grow taller */
-  width: 100vw;
+  min-height: 100vh;
+  width: 100%;
 }
 
 

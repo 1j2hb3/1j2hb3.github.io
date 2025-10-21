@@ -13,11 +13,13 @@ body {
   background-color: #000;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: white;
-  overflow: hidden;
+  overflow-y: auto; /* Allow vertical scroll */
+  overflow-x: hidden; /* Optional: keep horizontal scroll off */
   position: relative;
-  height: 100vh;
+  min-height: 100vh; /* Let content grow taller */
   width: 100vw;
 }
+
 
 .bg-dots {
   position: fixed;
